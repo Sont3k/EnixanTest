@@ -6,7 +6,7 @@
 public class CubeEditor : MonoBehaviour
 {
     Cube cube;
-    TextMesh textMesh;
+    [HideInInspector] public TextMesh textMesh;
 
     private void Awake()
     {
