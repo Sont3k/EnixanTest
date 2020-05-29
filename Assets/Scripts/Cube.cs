@@ -4,8 +4,24 @@ using UnityEngine;
 
 public class Cube : MonoBehaviour
 {
+    Placer placer;
+
     Vector2Int gridPos;
     const int gridSize = 20;
+    public bool isPlaceable = true;
+
+    private void Awake()
+    {
+        placer = FindObjectOfType<Placer>();
+    }
+
+    private void OnMouseOver()
+    {
+        if (Input.GetMouseButtonDown(0))
+        {
+            placer.AddBuildingOnMap(this);
+        }
+    }
 
     public int GetGridSize()
     {
@@ -19,5 +35,4 @@ public class Cube : MonoBehaviour
             Mathf.RoundToInt(transform.position.z / gridSize)
         );
     }
-
 }
