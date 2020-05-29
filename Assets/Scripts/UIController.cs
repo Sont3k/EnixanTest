@@ -13,6 +13,10 @@ public class UIController : MonoBehaviour
         cubes = FindObjectsOfType<Cube>();
     }
 
+    private void Start() {
+        ToggleGridVisibility();
+    }
+
     public void ToggleGridVisibility()
     {
         isGridVisible = !isGridVisible;
