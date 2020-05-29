@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 //TODO clamp camera to not going from map borders
+//TODO disable movement, when shop window is open
 
 public class PerspectivePan : MonoBehaviour
 {
