@@ -9,7 +9,7 @@ public class Placer : MonoBehaviour
     UIController uiController;
 
     public Dictionary<string, GameObject> buildings = new Dictionary<string, GameObject>();
-    public GameObject selectedBuilding;
+    private GameObject selectedBuilding;
     public float heightAboveBlock;
     Transform buildingPos;
 
@@ -52,7 +52,7 @@ public class Placer : MonoBehaviour
 
     }
 
-    public void AssignBuildingPrefab(string buildingName)
+    public void AssignBuilding(string buildingName)
     {
         if (buildings.ContainsKey(buildingName))
         {
