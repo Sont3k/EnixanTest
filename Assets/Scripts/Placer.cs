@@ -1,14 +1,13 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using UnityEngine;
 
 //TODO make placing for building with different sizes
 
 public class Placer : MonoBehaviour
 {
-    UIController uiController;
+    private UIController uiController;
 
-    public Dictionary<string, GameObject> buildings = new Dictionary<string, GameObject>();
+    private Dictionary<string, GameObject> buildings = new Dictionary<string, GameObject>();
     private GameObject selectedBuilding;
     public float heightAboveBlock;
     Transform buildingPos;
@@ -44,6 +43,7 @@ public class Placer : MonoBehaviour
 
                 Instantiate(selectedBuilding, cube.transform.position, cube.transform.rotation);
                 selectedBuilding = null;
+                cube.isPlaceable = false;
                 uiController.ToggleGridVisibility();
             }
             else
