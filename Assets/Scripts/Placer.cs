@@ -6,28 +6,58 @@ using UnityEngine;
 
 public class Placer : MonoBehaviour
 {
-    UIController uIController;
+    UIController uiController;
 
-    public GameObject buildingPrefab;
+    public Dictionary<string, GameObject> buildings = new Dictionary<string, GameObject>();
+    public GameObject selectedBuilding;
     public float heightAboveBlock;
     Transform buildingPos;
 
-    private void Awake() {
-        uIController = FindObjectOfType<UIController>();
+    [Header("Buildings prefabs")]
+    public GameObject stone;
+    public GameObject tree;
+
+    private void Awake()
+    {
+        uiController = FindObjectOfType<UIController>();
+    }
+
+    private void Start()
+    {
+        InitBuildingPrefabs();
+    }
+
+    private void InitBuildingPrefabs()
+    {
+        buildings.Add("Stone", stone);
+        buildings.Add("Tree", tree);
     }
 
     public void AddBuildingOnMap(Cube cube)
     {
-        if (cube.isPlaceable && uIController.isGridVisible)
+        if (selectedBuilding)
         {
-            buildingPos = cube.transform;
-            buildingPos.position = new Vector3(cube.transform.position.x, cube.transform.position.y + heightAboveBlock, cube.transform.position.z);
+            if (cube.isPlaceable && uiController.isGridVisible)
+            {
+                buildingPos = cube.transform;
+                buildingPos.position = new Vector3(cube.transform.position.x, cube.transform.position.y + heightAboveBlock, cube.transform.position.z);
 
-            Instantiate(buildingPrefab, cube.transform.position, cube.transform.rotation);
+                Instantiate(selectedBuilding, cube.transform.position, cube.transform.rotation);
+            }
+            else
+            {
+                print("Can't place here, cube is not placeable or grid is not visible.");
+            }
         }
-        else
+
+    }
+
+    public void AssignBuildingPrefab(string buildingName)
+    {
+        if (buildings.ContainsKey(buildingName))
         {
-            print("Can't place here, cube is not placeable or grid is not visible.");
+            selectedBuilding = buildings[buildingName];
+            print(selectedBuilding);
         }
     }
 }
