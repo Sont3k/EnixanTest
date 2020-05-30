@@ -43,6 +43,8 @@ public class Placer : MonoBehaviour
                 buildingPos.position = new Vector3(cube.transform.position.x, cube.transform.position.y + heightAboveBlock, cube.transform.position.z);
 
                 Instantiate(selectedBuilding, cube.transform.position, cube.transform.rotation);
+                selectedBuilding = null;
+                uiController.ToggleGridVisibility();
             }
             else
             {
@@ -56,8 +58,9 @@ public class Placer : MonoBehaviour
     {
         if (buildings.ContainsKey(buildingName))
         {
+            if (!uiController.isGridVisible) { uiController.ToggleGridVisibility(); }
+
             selectedBuilding = buildings[buildingName];
-            print(selectedBuilding);
         }
     }
 }
