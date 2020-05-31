@@ -7,14 +7,14 @@ public class Placer : MonoBehaviour
 {
     private UIController uiController;
 
-    private Dictionary<string, GameObject> buildings = new Dictionary<string, GameObject>();
-    private GameObject selectedBuilding;
+    private Dictionary<string, EnvironmentItem> buildings = new Dictionary<string, EnvironmentItem>();
+    private EnvironmentItem selectedBuilding;
     public float heightAboveBlock;
     Transform buildingPos;
 
     [Header("Buildings prefabs")]
-    public GameObject stone;
-    public GameObject tree;
+    public EnvironmentItem stone;
+    public EnvironmentItem tree;
 
     private void Awake()
     {
@@ -38,10 +38,8 @@ public class Placer : MonoBehaviour
         {
             if (cube.isPlaceable && uiController.isGridVisible)
             {
-                buildingPos = cube.transform;
-                buildingPos.position = new Vector3(cube.transform.position.x, cube.transform.position.y + heightAboveBlock, cube.transform.position.z);
+                InstantiateBuilding(cube);
 
-                Instantiate(selectedBuilding, cube.transform.position, cube.transform.rotation);
                 selectedBuilding = null;
                 cube.isPlaceable = false;
                 uiController.ToggleGridVisibility();
@@ -52,6 +50,16 @@ public class Placer : MonoBehaviour
             }
         }
 
+    }
+
+    private void InstantiateBuilding(Cube cube)
+    {
+        buildingPos = cube.transform;
+        buildingPos.position = new Vector3(cube.transform.position.x, cube.transform.position.y + heightAboveBlock, cube.transform.position.z);
+
+        var instantiatedBuilding = Instantiate(selectedBuilding, cube.transform.position, cube.transform.rotation);
+        instantiatedBuilding.attachedCube = cube;
+        instantiatedBuilding.name = selectedBuilding.gameObject.name;
     }
 
     public void AssignBuilding(string buildingName)

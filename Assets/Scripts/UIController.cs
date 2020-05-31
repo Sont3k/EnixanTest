@@ -1,8 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-
-//TODO add icon changing for GridVisibility button
+﻿using UnityEngine;
 
 public class UIController : MonoBehaviour
 {
