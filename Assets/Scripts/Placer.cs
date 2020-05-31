@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using UnityEngine;
 
-//TODO make placing for building with different sizes
+//TODO make placing for buildings with different sizes
 
 public class Placer : MonoBehaviour
 {
