@@ -10,7 +10,7 @@ public class Placer : MonoBehaviour
     private Dictionary<string, EnvironmentItem> buildings = new Dictionary<string, EnvironmentItem>();
     private EnvironmentItem selectedBuilding;
     public float heightAboveBlock;
-    Transform buildingPos;
+    private Transform buildingPos;
 
     [Header("Buildings prefabs")]
     public EnvironmentItem stone;

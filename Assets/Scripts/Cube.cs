@@ -2,9 +2,9 @@
 
 public class Cube : MonoBehaviour
 {
-    Placer placer;
+    private Placer placer;
 
-    Vector2Int gridPos;
+    private Vector2Int gridPos;
     const int gridSize = 20;
     public bool isPlaceable = true;
 

@@ -22050,6 +22050,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Shop Window
       objectReference: {fileID: 0}
+    - target: {fileID: 5407702372838774360, guid: d807a79183fc7c04a8d90da7eb6632ec,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5407702372838774363, guid: d807a79183fc7c04a8d90da7eb6632ec,
         type: 3}
       propertyPath: m_LocalPosition.x

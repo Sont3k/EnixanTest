@@ -2,10 +2,9 @@
 
 [ExecuteInEditMode]
 [SelectionBase]
-
 public class CubeEditor : MonoBehaviour
 {
-    Cube cube;
+    private Cube cube;
     [HideInInspector] public TextMesh textMesh;
 
     private void Awake()
@@ -41,7 +40,7 @@ public class CubeEditor : MonoBehaviour
 
         transform.position = new Vector3(
             gridPos.x,
-            20f,
+            gridSize,
             gridPos.y
         );
     }

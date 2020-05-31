@@ -19,7 +19,6 @@ public class EnvironmentItem : MonoBehaviour
         z = attachedCube.GetGridPos().y;
 
         id = x + z;
-        // name = //TODO implement name
     }
 
     private void OnMouseOver()

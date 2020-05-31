@@ -2,7 +2,7 @@
 
 public class UIController : MonoBehaviour
 {
-    Cube[] cubes;
+    private Cube[] cubes;
     public bool isGridVisible = true;
 
     private void Awake() {
