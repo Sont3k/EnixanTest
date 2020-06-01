@@ -92,7 +92,7 @@ TextMesh:
   m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
   m_Color:
     serializedVersion: 2
-    rgba: 4278190251
+    rgba: 1493172223
 --- !u!1 &3459916389959055021
 GameObject:
   m_ObjectHideFlags: 0
@@ -345,7 +345,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 786ace1300a524e4683e49e0a84ae887, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  textMesh: {fileID: 0}
+  textMesh: {fileID: 478774664277224153}
 --- !u!65 &572682062613232234
 BoxCollider:
   m_ObjectHideFlags: 0
